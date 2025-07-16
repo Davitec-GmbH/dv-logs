@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Module"/>
+
+<f:section name="Content">
+    <f:spaceless>
+        <h1><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:mlang_tabs_tab" /></h1>
+
+        <div class="row">
+            <f:comment><!-- Panel: Available log files --></f:comment>
+            <div class="col-md-12">
+                <div class="panel panel-space panel-default recordlist">
+                    <div class="panel-heading">
+                        <h4><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:available_log_files" /> (<f:count>{logFiles}</f:count>)</h4>
+                    </div>
+                    <div class="table-fit">
+                        <table class="table table-hover">
+                            <tbody>
+                            <f:for each="{logFiles}" as="file">
+                                <tr>
+                                    <td>
+                                        <f:be.link route="dv_logs" parameters="{action: 'show', fileName: file}">
+                                            {file}
+                                        </f:be.link>
+                                    </td>
+                                </tr>
+                            </f:for>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:spaceless>
+</f:section>
+
+</html>
