@@ -17,20 +17,20 @@
                 <div class="table-fit">
                     <table class="table table-hover">
                         <thead>
-                            <tr>
-                                <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:filename" /></th>
-                                <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:file_size" /></th>
-                                <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:creation_date" /></th>
-                                <th>Actions</th>
-                            </tr>
+                        <tr>
+                            <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:filename" /></th>
+                            <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:file_size" /></th>
+                            <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:creation_date" /></th>
+                            <th>Actions</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <f:for each="{logFiles}" as="file">
                             <tr>
-                                <td><f:be.link route="dvlogs_logmodule" parameters="{action: 'show', fileName: file.name}">{file.name}</f:be.link></td>
+                                <td><f:be.link route="dv_logs" parameters="{action: 'show', fileName: file.name}">{file.name}</f:be.link></td>
                                 <td><f:format.bytes value="{file.size}" /></td>
                                 <td><f:format.date format="Y-m-d H:i:s">{file.created}</f:format.date></td>
-                                <td><f:be.link route="dvlogs_logmodule" parameters="{action: 'delete', fileName: file.name}" class="btn btn-danger btn-sm">
+                                <td><f:be.link route="dv_logs" parameters="{action: 'delete', fileName: file.name}" class="btn btn-danger btn-sm">
                                         <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:delete_log" />
                                     </f:be.link>
                                 </td>

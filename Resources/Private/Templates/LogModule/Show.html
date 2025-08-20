@@ -10,10 +10,10 @@
             <h1><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:mlang_tabs_tab" /></h1>
         </div>
         <div class="col-md-6 text-end">
-            <f:be.link route="dvlogs_logmodule" parameters="{action: 'delete', fileName: activeFile}" class="btn btn-danger me-2">
+            <f:be.link route="dv_logs" parameters="{action: 'delete', fileName: activeFile}" class="btn btn-danger me-2">
                 <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:delete_log" />
             </f:be.link>
-            <f:be.link route="dvlogs_logmodule" parameters="{action: 'list'}" class="btn btn-default">
+            <f:be.link route="dv_logs" parameters="{action: 'list'}" class="btn btn-default">
                 <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:back_to_list" />
             </f:be.link>
         </div>
@@ -74,7 +74,7 @@
 
     <div class="row">
         <div class="col-md-12 text-center mt-3 mb-3">
-            <f:be.link route="dvlogs_logmodule" parameters="{action: 'list'}" class="btn btn-default">
+            <f:be.link route="dv_logs" parameters="{action: 'list'}" class="btn btn-default">
                 <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:back_to_list" />
             </f:be.link>
         </div>
