@@ -1,47 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext">
-        <header/>
-        <body>
-            <trans-unit id="mlang_tabs_tab">
-                <source>Logs</source>
-            </trans-unit>
-            <trans-unit id="back_to_list">
-                <source>Back to List</source>
-            </trans-unit>
-            <trans-unit id="log_content">
-                <source>Log Content</source>
-            </trans-unit>
-            <trans-unit id="datetime">
-                <source>Date/Time</source>
-            </trans-unit>
-            <trans-unit id="level">
-                <source>Level</source>
-            </trans-unit>
-            <trans-unit id="message">
-                <source>Message</source>
-            </trans-unit>
-            <trans-unit id="error">
-                <source>Error</source>
-            </trans-unit>
-            <trans-unit id="warning">
-                <source>Warning</source>
-            </trans-unit>
-            <trans-unit id="notice">
-                <source>Notice</source>
-            </trans-unit>
-            <trans-unit id="info">
-                <source>Info</source>
-            </trans-unit>
-            <trans-unit id="entries">
-                <source>entries</source>
-            </trans-unit>
-            <trans-unit id="available_log_files">
-                <source>Available Log Files</source>
-            </trans-unit>
-            <trans-unit id="delete_log">
-                <source>Delete Log File</source>
-            </trans-unit>
-        </body>
+	<file source-language="en" datatype="plaintext">
+		<header/>
+		<body>
+			<trans-unit id="mlang_tabs_tab">
+				<source>logs</source>
+			</trans-unit>
+			<trans-unit id="back_to_list">
+				<source>back to list</source>
+			</trans-unit>
+			<trans-unit id="log_content">
+				<source>log content</source>
+			</trans-unit>
+			<trans-unit id="datetime">
+				<source>date/time</source>
+			</trans-unit>
+			<trans-unit id="level">
+				<source>level</source>
+			</trans-unit>
+			<trans-unit id="message">
+				<source>message</source>
+			</trans-unit>
+			<trans-unit id="error">
+				<source>error</source>
+			</trans-unit>
+			<trans-unit id="warning">
+				<source>warning</source>
+			</trans-unit>
+			<trans-unit id="notice">
+				<source>notice</source>
+			</trans-unit>
+			<trans-unit id="info">
+				<source>info</source>
+			</trans-unit>
+			<trans-unit id="entries">
+				<source>entries</source>
+			</trans-unit>
+			<trans-unit id="available_log_files">
+				<source>available log files</source>
+			</trans-unit>
+			<trans-unit id="delete_log">
+				<source>delete log file</source>
+			</trans-unit>
+			<trans-unit id="file_size">
+				<source>file size</source>
+			</trans-unit>
+			<trans-unit id="creation_date">
+				<source>creation date</source>
+			</trans-unit>
+			<trans-unit id="filename">
+				<source>file name</source>
+			</trans-unit>
+		</body>
 	</file>
 </xliff>
