@@ -22,7 +22,7 @@ class LogModuleController extends ActionController
 
     public function listAction(): ResponseInterface
     {
-        $this->moduleTemplate->assign('logFiles', $this->getLogFiles());
+        $this->moduleTemplate->assign('logFiles', $this->getLogFilesMeta());
         return $this->moduleTemplate->renderResponse('LogModule/List');
     }
 
@@ -58,7 +58,10 @@ class LogModuleController extends ActionController
         return $this->redirect(actionName: 'list');
     }
 
-    protected function getLogFiles(): array
+
+    // Helper methods are private because they are only used inside this controller.
+    // getLogFiles(): returns a simple list of file names in /var/log.
+    private function getLogFiles(): array
     {
         $logDir = self::getLogDirectory();
         $logFiles = [];
@@ -73,7 +76,49 @@ class LogModuleController extends ActionController
 
         return $logFiles;
     }
+    // getLogFilesMeta(): returns the same files but with extra details (name, size, created).
+    private function getLogFilesMeta(): array
+    {
+        $dir = self::getLogDirectory();
+        $files = [];
+        if (is_dir($dir)) {
+            foreach (scandir($dir) as $file) {
+                $path = $dir . $file;
+                if (is_file($path)) {
+                    $files[] = [
+                        'name'    => $file,
+                        'size'    => filesize($path),
+                        'created' => filectime($path),
+                    ];
+                }
+            }
+        }
+        return $files;
+    }
 
+    /**
+     *
+     * TYPO3 log files are just plain text. Each line may contain different formats,
+     * for example with a datetime + level + message, or just component/level info.
+     * This method normalizes those lines into an array with keys:
+     *   - datetime: (string) when the log entry was created, if available
+     *   - level:    (string) log level in lowercase (error, warning, info, ...)
+     *   - message:  (string) the raw log message text
+     *
+     * Workflow:
+     * 1. Loop over each line from the log file.
+     * 2. Trim whitespace; skip empty lines.
+     * 3. Try to match the “standard” TYPO3 log format:
+     *      Example: `Mon, 19 Aug 2024 14:52:30 ... [ERROR] Something failed`
+     *    → Extract datetime, level, and the actual message.
+     * 4. If not standard, try to match the “component format”:
+     *      Example: `component="TYPO3.CMS.Core" ... [WARNING] More details...`
+     *    → No datetime available, but we can still extract level + full line as message.
+     * 5. If neither pattern fits, treat the line as a fallback:
+     *      → No datetime, no level, just the raw line as message.
+     * 6. Collect all parsed entries in an array and return it.
+     *
+     */
     protected function parseLogContent(array $lines): array
     {
         $entries = [];
@@ -83,13 +128,14 @@ class LogModuleController extends ActionController
             if ($line === '') {
                 continue;
             }
-
+            // Match standard format "datetime [LEVEL] message"
             if (preg_match('/^(?<datetime>\w{3}, \d{2} \w{3} \d{4} \d{2}:\d{2}:\d{2}) .*? \[(?<level>[A-Z]+)\] (?<message>.*)$/', $line, $matches)) {
                 $entries[] = [
                     'datetime' => $matches['datetime'],
                     'level' => strtolower($matches['level']),
                     'message' => $matches['message']
                 ];
+                // Match "component=..." format, no datetime available
             } elseif (preg_match('/component="(?<component>[^"]+)"[^\\[]+\[(?<level>[A-Z]+)\](.*)$/', $line, $matches)) {
                 $entries[] = [
                     'datetime' => '',
