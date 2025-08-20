@@ -5,82 +5,82 @@
 <f:layout name="Module"/>
 
 <f:section name="Content">
-<f:spaceless>
-    <div class="row">
-        <div class="col-md-6">
-            <h1><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:mlang_tabs_tab" /></h1>
+    <f:spaceless>
+        <div class="row">
+            <div class="col-md-6">
+                <h1><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:mlang_tabs_tab" /></h1>
+            </div>
+            <div class="col-md-6 text-end">
+                <f:be.link route="dv_logs" parameters="{action: 'delete', fileName: activeFile}" class="btn btn-danger me-2">
+                    <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:delete_log" />
+                </f:be.link>
+                <f:be.link route="dv_logs" parameters="{action: 'list'}" class="btn btn-default">
+                    <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:back_to_list" />
+                </f:be.link>
+            </div>
         </div>
-        <div class="col-md-6 text-end">
-            <f:be.link route="dv_logs" parameters="{action: 'delete', fileName: activeFile}" class="btn btn-danger me-2">
-                <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:delete_log" />
-            </f:be.link>
-            <f:be.link route="dv_logs" parameters="{action: 'list'}" class="btn btn-default">
-                <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:back_to_list" />
-            </f:be.link>
-        </div>
-    </div>
 
-    <div class="row">
-        <f:if condition="{logEntries}">
-            <div class="col-md-12">
-                <div class="panel panel-space panel-default recordlist">
-                    <div class="panel-heading alert-info">
-                        <h4><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:log_content" />: {activeFile} (<f:count>{logEntries}</f:count> <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:entries" />)</h4>
-                    </div>
-                    <div class="table-fit">
-                        <table class="table table-striped table-hover">
-                            <thead>
-                            <tr>
-                                <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:datetime" /></th>
-                                <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:level" /></th>
-                                <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:message" /></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <f:for each="{logEntries}" as="entry">
+        <div class="row">
+            <f:if condition="{logEntries}">
+                <div class="col-md-12">
+                    <div class="panel panel-space panel-default recordlist">
+                        <div class="panel-heading alert-info">
+                            <h4><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:log_content" />: {activeFile} (<f:count>{logEntries}</f:count> <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:entries" />)</h4>
+                        </div>
+                        <div class="table-fit">
+                            <table class="table table-striped table-hover">
+                                <thead>
                                 <tr>
-                                    <td>{entry.datetime}</td>
-                                    <td>
-                                        <f:comment><!-- Show badge color based on severity --></f:comment>
-                                        <f:switch expression="{entry.level}">
-                                            <f:case value="error">
-                                                <span class="badge bg-danger"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:error" /></span>
-                                            </f:case>
-                                            <f:case value="warning">
-                                                <span class="badge bg-warning"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:warning" /></span>
-                                            </f:case>
-                                            <f:case value="notice">
-                                                <span class="badge bg-info"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:notice" /></span>
-                                            </f:case>
-                                            <f:case value="info">
-                                                <span class="badge bg-success"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:info" /></span>
-                                            </f:case>
-                                            <f:defaultCase>
-                                                <span class="badge bg-secondary">{entry.level}</span>
-                                            </f:defaultCase>
-                                        </f:switch>
-                                    </td>
-                                    <td>
-                                        <pre style="white-space: pre-wrap;">{entry.message}</pre>
-                                    </td>
+                                    <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:datetime" /></th>
+                                    <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:level" /></th>
+                                    <th><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:message" /></th>
                                 </tr>
-                            </f:for>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <f:for each="{logEntries}" as="entry">
+                                    <tr>
+                                        <td>{entry.datetime}</td>
+                                        <td>
+                                            <f:comment><!-- Show badge color based on severity --></f:comment>
+                                            <f:switch expression="{entry.level}">
+                                                <f:case value="error">
+                                                    <span class="badge bg-danger"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:error" /></span>
+                                                </f:case>
+                                                <f:case value="warning">
+                                                    <span class="badge bg-warning"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:warning" /></span>
+                                                </f:case>
+                                                <f:case value="notice">
+                                                    <span class="badge bg-info"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:notice" /></span>
+                                                </f:case>
+                                                <f:case value="info">
+                                                    <span class="badge bg-success"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:info" /></span>
+                                                </f:case>
+                                                <f:defaultCase>
+                                                    <span class="badge bg-secondary">{entry.level}</span>
+                                                </f:defaultCase>
+                                            </f:switch>
+                                        </td>
+                                        <td>
+                                            <pre style="white-space: pre-wrap;">{entry.message}</pre>
+                                        </td>
+                                    </tr>
+                                </f:for>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </f:if>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12 text-center mt-3 mb-3">
-            <f:be.link route="dv_logs" parameters="{action: 'list'}" class="btn btn-default">
-                <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:back_to_list" />
-            </f:be.link>
+            </f:if>
         </div>
-    </div>
-</f:spaceless>
+
+        <div class="row">
+            <div class="col-md-12 text-center mt-3 mb-3">
+                <f:be.link route="dv_logs" parameters="{action: 'list'}" class="btn btn-default">
+                    <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:back_to_list" />
+                </f:be.link>
+            </div>
+        </div>
+    </f:spaceless>
 </f:section>
 
 </html>
