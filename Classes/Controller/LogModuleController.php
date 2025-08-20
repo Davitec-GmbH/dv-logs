@@ -59,8 +59,9 @@ class LogModuleController extends ActionController
     }
 
 
-    // Helper methods are private because they are only used inside this controller.
-    // getLogFiles(): returns a simple list of file names in /var/log.
+    /**
+     * Returns all log file names from the TYPO3 /var/log directory as an array of strings.
+     */
     private function getLogFiles(): array
     {
         $logDir = self::getLogDirectory();
@@ -76,7 +77,13 @@ class LogModuleController extends ActionController
 
         return $logFiles;
     }
-    // getLogFilesMeta(): returns the same files but with extra details (name, size, created).
+    /**
+     * Returns all log files from the TYPO3 /var/log directory
+     * with additional details for each file:
+     *  - name: the file name
+     *  - size: file size in bytes
+     *  - created: timestamp of when the file was created
+     */
     private function getLogFilesMeta(): array
     {
         $dir = self::getLogDirectory();
@@ -119,7 +126,7 @@ class LogModuleController extends ActionController
      * 6. Collect all parsed entries in an array and return it.
      *
      */
-    protected function parseLogContent(array $lines): array
+    private function parseLogContent(array $lines): array
     {
         $entries = [];
 
@@ -154,7 +161,7 @@ class LogModuleController extends ActionController
         return $entries;
     }
 
-    protected static function getLogDirectory(): string
+    private static function getLogDirectory(): string
     {
         return Environment::getVarPath() . '/log/';
     }
