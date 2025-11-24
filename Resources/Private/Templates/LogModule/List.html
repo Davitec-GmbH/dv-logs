@@ -57,11 +57,11 @@
                                         <f:format.date format="Y-m-d H:i:s">{file.created}</f:format.date>
                                     </td>
                                     <td>
-                                        <f:be.link route="dv_logs" parameters="{action: 'delete', fileName: file.name}"
-                                                   class="btn btn-danger btn-sm">
-                                            <f:translate
-                                                key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:delete_log"/>
-                                        </f:be.link>
+                                        <f:form action="delete" method="post" arguments="{fileName: file.name}">
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:delete_log" />
+                                            </button>
+                                        </f:form>
                                     </td>
                                 </tr>
                             </f:for>

@@ -11,9 +11,11 @@
                 <h1><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:mlang_tabs_tab" /></h1>
             </div>
             <div class="col-md-6 text-end">
-                <f:be.link route="dv_logs" parameters="{action: 'delete', fileName: activeFile}" class="btn btn-danger me-2">
-                    <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:delete_log" />
-                </f:be.link>
+                <f:form action="delete" method="post" arguments="{fileName: activeFile}" class="d-inline">
+                    <button type="submit" class="btn btn-danger me-2">
+                        <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:delete_log" />
+                    </button>
+                </f:form>
                 <f:be.link route="dv_logs" parameters="{action: 'list'}" class="btn btn-default">
                     <f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:back_to_list" />
                 </f:be.link>
