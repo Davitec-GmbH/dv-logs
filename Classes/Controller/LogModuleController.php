@@ -32,9 +32,13 @@ class LogModuleController extends ActionController
         $parsedLogEntries = [];
 
         if (in_array($fileName, $logFiles, true)) {
-            $logPath = self::getLogDirectory() . $fileName;
-            if (is_readable($logPath)) {
-                $lines = file($logPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            $logFilePath = self::getLogDirectory() . $fileName;
+            if (is_readable($logFilePath)) {
+                // read all lines from file
+                $lines = file($logFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                // reverse lines so that the most recent ones appear first
+                $lines = array_reverse($lines);
+                // only output 500 lines
                 $lines = array_slice($lines, -500);
                 $parsedLogEntries = $this->parseLogContent($lines);
             }
@@ -77,6 +81,7 @@ class LogModuleController extends ActionController
 
         return $logFiles;
     }
+
     /**
      * Returns all log files from the TYPO3 /var/log directory
      * with additional details for each file:

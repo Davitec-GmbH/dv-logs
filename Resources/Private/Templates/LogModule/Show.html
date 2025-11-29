@@ -44,22 +44,26 @@
                                         <td>
                                             <f:comment><!-- Show badge color based on severity --></f:comment>
                                             <f:switch expression="{entry.level}">
+                                                <f:case value="critical">
+                                                    <f:variable name="badgeColorClasses">bg-danger text-bg-danger border-warning</f:variable>
+                                                </f:case>
                                                 <f:case value="error">
-                                                    <span class="badge bg-danger"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:error" /></span>
+                                                    <f:variable name="badgeColorClasses">bg-danger text-bg-danger</f:variable>
                                                 </f:case>
                                                 <f:case value="warning">
-                                                    <span class="badge bg-warning"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:warning" /></span>
+                                                    <f:variable name="badgeColorClasses">bg-warning text-bg-warning</f:variable>
                                                 </f:case>
                                                 <f:case value="notice">
-                                                    <span class="badge bg-info"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:notice" /></span>
+                                                    <f:variable name="badgeColorClasses">bg-info text-bg-info</f:variable>
                                                 </f:case>
                                                 <f:case value="info">
-                                                    <span class="badge bg-success"><f:translate key="LLL:EXT:dv_logs/Resources/Private/Language/locallang_mod.xlf:info" /></span>
+                                                    <f:variable name="badgeColorClasses">bg-success text-bg-success</f:variable>
                                                 </f:case>
                                                 <f:defaultCase>
-                                                    <span class="badge bg-secondary">{entry.level}</span>
+                                                    <f:variable name="badgeColorClasses">bg-secondary text-bg-secondary</f:variable>
                                                 </f:defaultCase>
                                             </f:switch>
+                                            <span class="badge {badgeColorClasses}">{entry.level}</span>
                                         </td>
                                         <td>
                                             <pre style="white-space: pre-wrap;">{entry.message}</pre>

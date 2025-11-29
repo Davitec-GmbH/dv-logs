@@ -21,18 +21,6 @@
 			<trans-unit id="message">
 				<source>message</source>
 			</trans-unit>
-			<trans-unit id="error">
-				<source>error</source>
-			</trans-unit>
-			<trans-unit id="warning">
-				<source>warning</source>
-			</trans-unit>
-			<trans-unit id="notice">
-				<source>notice</source>
-			</trans-unit>
-			<trans-unit id="info">
-				<source>info</source>
-			</trans-unit>
 			<trans-unit id="entries">
 				<source>entries</source>
 			</trans-unit>
