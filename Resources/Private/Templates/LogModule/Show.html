@@ -63,7 +63,11 @@
                                                     <f:variable name="badgeColorClasses">bg-secondary text-bg-secondary</f:variable>
                                                 </f:defaultCase>
                                             </f:switch>
-                                            <span class="badge {badgeColorClasses}">{entry.level}</span>
+
+                                            <f:comment><!-- dont output a(n empty) badge, if not level is given --></f:comment>
+                                            <f:if condition="{entry.level}">
+                                                <span class="{badgeColorClasses}">{entry.level}</span>
+                                            </f:if>
                                         </td>
                                         <td>
                                             <pre style="white-space: pre-wrap;">{entry.message}</pre>

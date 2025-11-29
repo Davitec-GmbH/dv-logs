@@ -21,7 +21,7 @@
 			</trans-unit>
 			<trans-unit id="level">
 				<source>level</source>
-				<target>Stufe</target>
+				<target>Level</target>
 			</trans-unit>
 			<trans-unit id="message">
 				<source>message</source>
