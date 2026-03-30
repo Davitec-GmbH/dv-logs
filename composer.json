@@ -1,8 +1,11 @@
 {
 	"name": "davitec/dv-logs",
-	"type": "typo3-cms-extension",
 	"description": "Lightweight TYPO3 backend module that provides a simple interface for viewing and managing TYPO3 system log files",
-	"homepage": "https://www.davitec.de/",
+	"license": [
+		"GPL-2.0-or-later"
+	],
+	"type": "typo3-cms-extension",
+	"version": "1.0.0",
 	"authors": [
 		{
 			"name": "Philipp Gollmer",
@@ -16,10 +19,7 @@
 			"role": "Developer"
 		}
 	],
-	"license": [
-		"GPL-2.0-or-later"
-	],
-	"version": "1.0.0",
+	"homepage": "https://www.davitec.de/",
 	"require": {
 		"typo3/cms-core": "^13.0 || ^14.0"
 	},
