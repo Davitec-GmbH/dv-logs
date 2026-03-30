@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Davitec\Dvlogs\Controller;
@@ -63,7 +64,6 @@ class LogModuleController extends ActionController
         return $this->redirect(actionName: 'list');
     }
 
-
     /**
      * Returns all log file names from the TYPO3 /var/log directory as an array of strings.
      */
@@ -110,7 +110,6 @@ class LogModuleController extends ActionController
     }
 
     /**
-     *
      * TYPO3 log files are just plain text. Each line may contain different formats,
      * for example with a datetime + level + message, or just component/level info.
      * This method normalizes those lines into an array with keys:
@@ -130,7 +129,6 @@ class LogModuleController extends ActionController
      * 5. If neither pattern fits, treat the line as a fallback:
      *      → No datetime, no level, just the raw line as message.
      * 6. Collect all parsed entries in an array and return it.
-     *
      */
     private function parseLogContent(array $lines): array
     {
@@ -146,20 +144,20 @@ class LogModuleController extends ActionController
                 $entries[] = [
                     'datetime' => $matches['datetime'],
                     'level' => strtolower($matches['level']),
-                    'message' => $matches['message']
+                    'message' => $matches['message'],
                 ];
                 // Match "component=..." format, no datetime available
             } elseif (preg_match('/component="(?<component>[^"]+)"[^\\[]+\[(?<level>[A-Z]+)\](.*)$/', $line, $matches)) {
                 $entries[] = [
                     'datetime' => '',
                     'level' => strtolower($matches['level']),
-                    'message' => $line
+                    'message' => $line,
                 ];
             } else {
                 $entries[] = [
                     'datetime' => '',
                     'level' => '',
-                    'message' => $line
+                    'message' => $line,
                 ];
             }
         }

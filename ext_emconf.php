@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['dv_logs'] = [
     'title' => 'dv_logs',
     'description' => 'Lightweight TYPO3 backend module that provides a simple interface for viewing and managing TYPO3 system log files.',
     'category' => 'module',

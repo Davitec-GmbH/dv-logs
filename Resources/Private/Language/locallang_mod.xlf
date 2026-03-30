@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<trans-unit id="mlang_tabs_tab">
-				<source>logs</source>
+				<source>Log Files</source>
 			</trans-unit>
 			<trans-unit id="back_to_list">
 				<source>back to list</source>
@@ -39,6 +39,9 @@
 			<trans-unit id="filename">
 				<source>file name</source>
 			</trans-unit>
-		</body>
-	</file>
-</xliff>
+			<trans-unit id="actions">
+				<source>actions</source>
+			</trans-unit>
+			</body>
+		</file>
+	</xliff>

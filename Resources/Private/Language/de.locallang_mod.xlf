@@ -5,7 +5,7 @@
 		<body>
 			<trans-unit id="mlang_tabs_tab">
 				<source>logs</source>
-				<target>Protokolle</target>
+				<target>Log Dateien</target>
 			</trans-unit>
 			<trans-unit id="back_to_list">
 				<source>back to list</source>
@@ -51,6 +51,10 @@
 				<source>file name</source>
 				<target>Dateiname</target>
 			</trans-unit>
-		</body>
-	</file>
-</xliff>
+			<trans-unit id="actions">
+				<source>actions</source>
+				<target>Aktionen</target>
+			</trans-unit>
+			</body>
+		</file>
+	</xliff>
