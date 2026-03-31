@@ -5,27 +5,18 @@
 		"GPL-2.0-or-later"
 	],
 	"type": "typo3-cms-extension",
-	"version": "1.0.0",
 	"authors": [
 		{
-			"name": "Philipp Gollmer",
-			"email": "pg@davitec.de",
-			"homepage": "https://www.davitec.de/",
-			"role": "Project Owner"
-		},
-		{
-			"name": "Rao Faraz Shakeel",
-			"homepage": "https://www.davitec.de/",
-			"role": "Developer"
+			"name": "Davitec GmbH, +Pluswerk Standort Dresden",
+			"email": "devops@davitec.de"
 		}
 	],
-	"homepage": "https://www.davitec.de/",
+	"homepage": "https://github.com/Davitec-GmbH/dv-logs",
 	"support": {
-		"issues": "https://github.com/Davitec-GmbH/dv_logs/issues",
-		"source": "https://github.com/Davitec-GmbH/dv_logs"
+		"source": "https://github.com/Davitec-GmbH/dv-logs"
 	},
 	"require": {
-		"typo3/cms-core": "^13.0 || ^14.0"
+		"typo3/cms-core": "^12 || ^13.0 || ^14.0"
 	},
 	"autoload": {
 		"psr-4": {
