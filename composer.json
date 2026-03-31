@@ -20,6 +20,10 @@
 		}
 	],
 	"homepage": "https://www.davitec.de/",
+	"support": {
+		"issues": "https://github.com/Davitec-GmbH/dv_logs/issues",
+		"source": "https://github.com/Davitec-GmbH/dv_logs"
+	},
 	"require": {
 		"typo3/cms-core": "^13.0 || ^14.0"
 	},
