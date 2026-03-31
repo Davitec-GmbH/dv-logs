@@ -1,31 +1,37 @@
 {
-	"name": "davitec/dv-logs",
-	"description": "Lightweight TYPO3 backend module that provides a simple interface for viewing and managing TYPO3 system log files",
-	"license": [
-		"GPL-2.0-or-later"
-	],
-	"type": "typo3-cms-extension",
-	"authors": [
-		{
-			"name": "Davitec GmbH, +Pluswerk Standort Dresden",
-			"email": "devops@davitec.de"
-		}
-	],
-	"homepage": "https://github.com/Davitec-GmbH/dv-logs",
-	"support": {
-		"source": "https://github.com/Davitec-GmbH/dv-logs"
-	},
-	"require": {
-		"typo3/cms-core": "^12 || ^13.0 || ^14.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"Davitec\\Dvlogs\\": "Classes/"
-		}
-	},
-	"extra": {
-		"typo3/cms": {
-			"extension-key": "dv_logs"
-		}
-	}
+    "name": "davitec/dv-logs",
+    "type": "typo3-cms-extension",
+    "description": "Lightweight TYPO3 backend module that provides a simple interface for viewing and managing TYPO3 system log files.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Davitec GmbH, +Pluswerk Standort Dresden",
+            "email": "devops@davitec.de"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "typo3/cms-core": "^12.4 || ^13.4 || ^14.0",
+        "typo3/cms-backend": "^12.4 || ^13.4 || ^14.0",
+        "typo3/cms-extbase": "^12.4 || ^13.4 || ^14.0"
+    },
+    "require-dev": {
+        "typo3/testing-framework": "^8.0 || ^9.0",
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Davitec\\Dvlogs\\": "Classes/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Davitec\\Dvlogs\\Tests\\": "Tests/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "dv_logs"
+        }
+    }
 }
