@@ -14,3 +14,5 @@
 
 After installation, a backend module becomes available which lists all TYPO3 logfiles.
 From there, you can open individual files and inspect their most recent entries.
+
+Version 1.0.3
