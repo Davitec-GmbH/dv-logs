@@ -11,7 +11,7 @@ DV Logs
    davitec/dv-logs
 
 :Version:
-   |release|
+   1.0.4
 
 :Author:
    Davitec GmbH, +Pluswerk Standort Dresden

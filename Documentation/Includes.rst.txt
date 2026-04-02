@@ -1,4 +1,0 @@
-.. |extension_key| replace:: dv_logs
-.. |extension_name| replace:: DV Logs
-.. |release| replace:: 1.0.1
-.. |today| date:: %Y-%m-%d
