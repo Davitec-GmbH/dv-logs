@@ -33,5 +33,8 @@
         "typo3/cms": {
             "extension-key": "dv_logs"
         }
+    },
+    "support": {
+        "docs": "https://docs.typo3.org/p/davitec/dv-logs/main/en-us/Index.html"
     }
 }
