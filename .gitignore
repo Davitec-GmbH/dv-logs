@@ -3,3 +3,4 @@ vendor/
 .Build/
 var/
 .phpunit.cache/
+Documentation-GENERATED-temp/
